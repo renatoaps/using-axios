@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import axios from 'axios';
 
 export default function Update() {
+    let history = useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [checkbox, setCheckbox] = useState(false);
     const [id, setID] = useState(null);
-
+    
     useEffect(() => {
             setID(localStorage.getItem('ID'))
             setFirstName(localStorage.getItem('First Name'));
@@ -16,12 +18,13 @@ export default function Update() {
             setCheckbox(localStorage.getItem('Checkbox Value'))
     }, []);
     
-
     const updateAPIData = () => {
         axios.put(`https://615081e6a706cd00179b749e.mockapi.io/fakeData/${id}`, {
             firstName,
              lastName,
              checkbox
+        }).then(() =>{
+            history.push('/read')
         })
     }
 

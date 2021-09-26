@@ -2,8 +2,10 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import { Table, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router";
 
 export default function Read(){
+    let history = useHistory();
     const [ APIdata, setAPIData] = useState([]);
     useEffect(() => {
         axios.get("https://615081e6a706cd00179b749e.mockapi.io/fakeData")
@@ -20,6 +22,20 @@ export default function Read(){
       localStorage.setItem('Checkbox Value', checkbox);
     }
 
+    const getData = () => {
+      axios.get('https://615081e6a706cd00179b749e.mockapi.io/fakeData')
+        .then((responseData) => {
+          setAPIData(responseData.data);
+        })
+    }
+
+    const onDelete = (id) => {
+      axios.delete(`https://615081e6a706cd00179b749e.mockapi.io/fakeData/${id}`)
+        .then(()=>{
+          getData();
+        })
+  }
+
     return(
       <Table singleLine>
         <Table.Header>
@@ -27,8 +43,7 @@ export default function Read(){
             <Table.HeaderCell>FirstName</Table.HeaderCell>
             <Table.HeaderCell>LastName</Table.HeaderCell>
             <Table.HeaderCell>Checked</Table.HeaderCell>
-            <Table.HeaderCell>Update</Table.HeaderCell>
-   
+            <Table.HeaderCell>Actions</Table.HeaderCell>  
           </Table.Row>
         </Table.Header>
     
@@ -36,14 +51,15 @@ export default function Read(){
             {APIdata.map((data) =>{
                 return (
                     <Table.Row>
-                    <Table.Cell>{data.firstName}</Table.Cell>
-                    <Table.Cell>{data.lastName}</Table.Cell>
-                    <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
-                    <Link to='/update'>
-                      <Table.Cell>
-                        <Button onClick={() => setData(data)}>Update</Button>
-                      </Table.Cell>
-                    </Link>
+                      <Table.Cell>{data.firstName}</Table.Cell>
+                      <Table.Cell>{data.lastName}</Table.Cell>
+                      <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
+                      <Link to='/update'>
+                        <Table.Cell>
+                          <Button onClick={() => setData(data)}>Update</Button>
+                        </Table.Cell>
+                      </Link>
+                      <Button onClick={() => onDelete(data.id)}>Delete</Button>
                     </Table.Row>   
                 )})}
         </Table.Body>

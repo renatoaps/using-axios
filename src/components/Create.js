@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 export default function Create() {
+    let history = useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [checkbox, setCheckbox] = useState(false);
@@ -18,6 +20,8 @@ export default function Create() {
                 firstName,
                 lastName,
                 checkbox
+            }).then(() => {
+                history.push('/read');
             })
     }
 
