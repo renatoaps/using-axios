@@ -1,6 +1,5 @@
 import './App.css';
 import logo from './logo.svg';
-import { Button } from 'semantic-ui-react'
 import Create from './components/Create';
 import Read from './components/Read';
 import Update from './components/Update';
