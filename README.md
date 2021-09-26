@@ -1,5 +1,9 @@
 # Using Axios to simplify your `CRUD`
 
+>npm i axios
+>
+>import axios from 'axios';
+
 ![image](https://user-images.githubusercontent.com/39572088/134814714-ac3a4d68-a407-4e70-a954-272446244193.png)
 
 You can try to use:
