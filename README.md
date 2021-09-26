@@ -9,7 +9,7 @@ You can try to use:
 >
 >/read
 
-So, `axios` made operations more easy to do. let`s see a `GET` example:
+So, `axios` made operations more easy to do. let's see a `GET` example:
 ##### GET
 ```
     const [ APIdata, setAPIData] = useState([]);
