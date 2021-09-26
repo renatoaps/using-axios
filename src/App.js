@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import Create from './components/Create';
 import Read from './components/Read';
 import Update from './components/Update';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
   return (
