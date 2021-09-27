@@ -47,6 +47,6 @@
 .header-component{
   padding: 14px 0px 0px 0px;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }

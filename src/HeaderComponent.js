@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 export default function HeaderComponent() {
   return (
     <div className="header-component">
+      <Header as="h2" color="blue">
+        <Icon loading name="spinner" />
+        <Header.Content>
+          Learning React
+          <Header.Subheader>React CRUD using Axios</Header.Subheader>
+        </Header.Content>
+      </Header>
       <div class="ui secondary pointing menu">
-        <Header as="h2" color="blue">
-          <Icon loading name="spinner" />
-          <Header.Content>
-            Learning React
-            <Header.Subheader>React CRUD using Axios</Header.Subheader>
-          </Header.Content>
-        </Header>
         <div class="right menu">
           <Link to="/create">
             <a class="active item">Create</a>
