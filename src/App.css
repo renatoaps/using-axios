@@ -44,20 +44,9 @@
   }
 }
 
-.footer {
+.header-component{
+  padding: 14px 0px 0px 0px;
   display: flex;
-  text-align: center;
-  align-items: center;
-  background-color: #f5eaea86;
+  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;
-  clear: both;
-  position: relative;
-  margin-top:auto; 
-  width: 100%;
-}
-
-.footer-logo{
-  max-width: 50px;
-  max-height: 50px;
 }
